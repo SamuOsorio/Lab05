@@ -1,0 +1,13 @@
+# Entorno Python / SUMO
+.venv/
+__pycache__/
+*.pyc
+
+# Datos generados por MySQL / backups / PITR (pesados, no son código)
+backups/
+binlogs/
+restore/
+
+# Dataset de SUMO (archivo original + extraído, incluye salidas de simulación pesadas)
+TAPASCologne-0.32.0.7z
+TAPASCologne-0.32.0/

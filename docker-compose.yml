@@ -1,0 +1,75 @@
+name: lab05
+
+services:
+  mysql:
+    image: mysql:8.0.36
+    container_name: lab05-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: lab05root
+      MYSQL_DATABASE: sumo_db
+    command: >
+      --server-id=1
+      --log-bin=binlog
+      --binlog-format=ROW
+      --max-binlog-size=256M
+    ports: ["3306:3306"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-plab05root"]
+      interval: 5s
+      retries: 40
+  
+  backup:
+    image: percona/percona-xtrabackup:8.0.35-36
+    container_name: lab05-backup
+    user: root
+    depends_on:
+      mysql: { condition: service_healthy }
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_ROOT_PASSWORD: lab05root
+      BACKUP_INTERVAL: "60"
+      FULL_EVERY: "5"
+      KEEP_CHAINS: "10"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./backups:/backups
+      - ./restore:/restore
+      - ./scripts:/scripts:ro
+    entrypoint: ["bash", "/scripts/backup-loop.sh"]
+  
+  binlog-archiver:
+    image: mysql:8.0.36-debian
+    container_name: lab05-binlog-archiver
+    user: root
+    depends_on:
+      mysql: { condition: service_healthy }
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_ROOT_PASSWORD: lab05root
+    volumes:
+      - ./binlogs:/binlogs
+      - ./scripts:/scripts:ro
+    entrypoint: ["bash", "/scripts/binlog-archiver.sh"]
+
+  mysql-restore:
+    image: mysql:8.0.36
+    container_name: lab05-mysql-restore
+    profiles: ["restore"]
+    environment:
+      MYSQL_ROOT_PASSWORD: lab05root
+    command: --server-id=2 --skip-log-bin
+    ports: ["3307:3306"]
+    volumes:
+      - ./restore/datadir:/var/lib/mysql
+  
+  tools:
+    image: mysql:8.0.36-debian
+    profiles: ["tools"]
+    volumes:
+      - ./binlogs:/binlogs:ro
+    entrypoint: ["bash"]
+
+volumes:
+  mysql-data:

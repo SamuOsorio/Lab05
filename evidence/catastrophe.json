@@ -1,0 +1,16 @@
+{
+  "sql": "DELETE FROM locations WHERE sim_time BETWEEN 4000.0 AND 6000.0",
+  "sim_time_at_delete": 8000.0,
+  "wall_time_utc": "2026-10-18T19:45:03.551+00:00",
+  "rows_in_range_before": 437175,
+  "rows_deleted": 437175,
+  "total_rows_before": 658138,
+  "binlog_before_delete": {
+    "file": "binlog.000007",
+    "pos": 9072644
+  },
+  "binlog_after_delete": {
+    "file": "binlog.000007",
+    "pos": 51671179
+  }
+}

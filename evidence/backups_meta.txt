@@ -1,0 +1,49 @@
+== backups/20261018T194142Z_full/
+type=full
+base=20261018T194142Z_full
+parent=
+finished_utc=2026-10-18T19:41:45Z
+binlog_file=binlog.000004
+binlog_pos=157
+== backups/20261018T194242Z_incr/
+type=incr
+base=20261018T194142Z_full
+parent=20261018T194142Z_full
+finished_utc=2026-10-18T19:42:45Z
+binlog_file=binlog.000005
+binlog_pos=157
+== backups/20261018T194342Z_incr/
+type=incr
+base=20261018T194142Z_full
+parent=20261018T194242Z_incr
+finished_utc=2026-10-18T19:43:44Z
+binlog_file=binlog.000006
+binlog_pos=157
+== backups/20261018T194442Z_incr/
+type=incr
+base=20261018T194142Z_full
+parent=20261018T194342Z_incr
+finished_utc=2026-10-18T19:44:47Z
+binlog_file=binlog.000007
+binlog_pos=7736
+== backups/20261018T194542Z_incr/
+type=incr
+base=20261018T194142Z_full
+parent=20261018T194442Z_incr
+finished_utc=2026-10-18T19:45:47Z
+binlog_file=binlog.000008
+binlog_pos=18976
+== backups/20261018T194642Z_full/
+type=full
+base=20261018T194642Z_full
+parent=
+finished_utc=2026-10-18T19:46:46Z
+binlog_file=binlog.000009
+binlog_pos=157
+== backups/20261018T194742Z_incr/
+type=incr
+base=20261018T194642Z_full
+parent=20261018T194642Z_full
+finished_utc=2026-10-18T19:47:45Z
+binlog_file=binlog.000010
+binlog_pos=157

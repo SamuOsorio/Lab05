@@ -1,0 +1,2 @@
+lab05-binlog-archiver  | mysqld is alive
+lab05-binlog-archiver  | 2026-10-18T19:41:42Z archivando binlogs desde binlog.000001 -> /binlogs

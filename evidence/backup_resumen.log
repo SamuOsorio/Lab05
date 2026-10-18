@@ -1,0 +1,15 @@
+2026-10-18T19:41:42Z backup-loop iniciado: intervalo=60s full_cada=5 cadenas=10
+2026-10-18T19:41:42Z INICIO backup full -> 20261018T194142Z_full
+2026-10-18T19:41:45Z OK    backup full 20261018T194142Z_full binlog=binlog.000004:157 tamano=77M duracion=3s
+2026-10-18T19:42:42Z INICIO backup incr -> 20261018T194242Z_incr
+2026-10-18T19:42:45Z OK    backup incr 20261018T194242Z_incr binlog=binlog.000005:157 tamano=1.9M duracion=3s
+2026-10-18T19:43:42Z INICIO backup incr -> 20261018T194342Z_incr
+2026-10-18T19:43:44Z OK    backup incr 20261018T194342Z_incr binlog=binlog.000006:157 tamano=2.1M duracion=2s
+2026-10-18T19:44:42Z INICIO backup incr -> 20261018T194442Z_incr
+2026-10-18T19:44:47Z OK    backup incr 20261018T194442Z_incr binlog=binlog.000007:7736 tamano=134M duracion=5s
+2026-10-18T19:45:42Z INICIO backup incr -> 20261018T194542Z_incr
+2026-10-18T19:45:47Z OK    backup incr 20261018T194542Z_incr binlog=binlog.000008:18976 tamano=278M duracion=5s
+2026-10-18T19:46:42Z INICIO backup full -> 20261018T194642Z_full
+2026-10-18T19:46:46Z OK    backup full 20261018T194642Z_full binlog=binlog.000009:157 tamano=313M duracion=4s
+2026-10-18T19:47:42Z INICIO backup incr -> 20261018T194742Z_incr
+2026-10-18T19:47:45Z OK    backup incr 20261018T194742Z_incr binlog=binlog.000010:157 tamano=1.9M duracion=3s
